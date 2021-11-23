@@ -27,12 +27,16 @@
                 <a href="#" class="p-3">Username</a>
             </li>
             <li>
-                <a href="#" class="p-3">Logout</a>
+                <form action="{{route('logout')}}" method="post">
+                    @csrf
+                    <button type="submit" class="p-3">Logout</button>
+                </form>
+
             </li>
         @endauth
         @guest
             <li>
-                <a href="#" class="p-3">Login</a>
+                <a href="{{route('login')}}" class="p-3">Login</a>
             </li>
             <li>
                 <a href="{{route('register')}}" class="p-3">Register</a>
