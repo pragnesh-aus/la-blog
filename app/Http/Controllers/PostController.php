@@ -10,7 +10,10 @@ class PostController extends Controller
     //
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::get(); // laravel collection
+        return view('posts.index',[
+            'posts'=>$posts
+        ]);
     }
     public function store(Request $request){
         //dd('post');
@@ -20,7 +23,7 @@ class PostController extends Controller
 
         // creating a post
         auth()->user()->posts()->create($request->only('body'));
-        
+
 //        Post::create([
 //            'user_id'=>auth()->id(),
 //            'body'=>$request->body
