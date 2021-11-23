@@ -32,7 +32,10 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        // redirect to
+        // redirect to dashboard
+
+        return redirect()-> route('dashboard');
+
         // sign in user
     }
 }
