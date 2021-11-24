@@ -28,6 +28,7 @@
                         <p class="mb-2">{{$post->body}}</p>
                     </div>
                 @endforeach
+                {{$posts->links()}}
             @else
                 <p>Currently, there are no post. Please Post something to see.</p>
             @endif

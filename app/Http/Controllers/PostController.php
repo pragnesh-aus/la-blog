@@ -10,7 +10,7 @@ class PostController extends Controller
     //
     public function index()
     {
-        $posts = Post::get(); // laravel collection
+        $posts = Post::paginate(2); // paginate
         return view('posts.index',[
             'posts'=>$posts
         ]);
