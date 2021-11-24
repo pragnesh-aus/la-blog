@@ -14,7 +14,9 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            // generate fake 20 words sentence
+            'body'=>$this->faker->sentence(20),
+
         ];
     }
 }
