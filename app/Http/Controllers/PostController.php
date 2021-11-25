@@ -10,15 +10,17 @@ class PostController extends Controller
     //
     public function index()
     {
-        $posts = Post::paginate(10); // paginate
-        return view('posts.index',[
-            'posts'=>$posts
+        $posts = Post::latest()->with(['user', 'likes'])->paginate(10); // paginate
+        return view('posts.index', [
+            'posts' => $posts
         ]);
     }
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         //dd('post');
         $this->validate($request, [
-            'body'=>'required'
+            'body' => 'required'
         ]);
 
         // creating a post
@@ -28,6 +30,20 @@ class PostController extends Controller
 //            'user_id'=>auth()->id(),
 //            'body'=>$request->body
 //        ]);
+        return back();
+    }
+
+    public function show(Post $post)
+    {
+        return view("posts.show", [
+           'post' =>$post
+        ]);
+    }
+
+    public function destroy(Post $post)
+    {
+        $this->authorize('delete',$post);
+        $post->delete();
         return back();
     }
 }

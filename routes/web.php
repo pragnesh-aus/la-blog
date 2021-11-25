@@ -39,9 +39,14 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 // post
 Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::post('/posts', [PostController::class, 'store']);
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 // post like
 //Route::get('/posts',[PostController::class,'index'])->name('posts');
 Route::post('/posts/{post}/likes', [\App\Http\Controllers\PostLikeController::class, 'store'])->name('posts.likes');
 Route::delete('/posts/{post}/likes', [\App\Http\Controllers\PostLikeController::class, 'destroy'])->name('posts.likes');
+
+// User Post List
+Route::get('/users/{user:username}/posts', [\App\Http\Controllers\UserPostController::class, 'index'])->name('users.posts');
