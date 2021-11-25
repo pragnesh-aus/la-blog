@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body class="bg-gray-200 ">
-<nav class="p-6 bg-white flex justify-between mb-6">
+<nav class="p-6  flex justify-between mb-6 bg-gray-900 text-white w-screen">
+    <a class="text-3xl font-bold font-heading" href="/">
+        <!-- <img class="h-9" src="logo.png" alt="logo"> -->
+        LA-Blog
+    </a>
     <ul class="flex items-center">
         <li>
             <a href="/" class="p-3">Home</a>
@@ -48,5 +52,7 @@
 </nav>
 
 @yield('content')
+
+
 </body>
 </html>

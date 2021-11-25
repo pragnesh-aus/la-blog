@@ -38,12 +38,14 @@
                 </div>
                 <div class="mb-4">
                     <div class="flex items-center">
-                        <input type="checkbox" name="remember" id="remember" class="mr-2">
+                        <input type="checkbox" name="remember" id="remember"
+                               class="mr-2 checked:bg-blue-600 checked:border-transparent">
                         <label for="remember"> Remember me</label>
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="bg-blue-500 text-white px-4 py-3 rounded font-medium w-full">Login
+                    <button type="submit"
+                            class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-3 rounded font-medium w-full">Login
                     </button>
                 </div>
             </form>
